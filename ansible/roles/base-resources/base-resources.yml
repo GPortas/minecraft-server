@@ -1,0 +1,6 @@
+- name: "Base Resources Install"
+
+  roles:
+    - roles/base-resources
+
+  become: true

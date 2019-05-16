@@ -1,0 +1,6 @@
+- hosts: minecraft-server
+
+  roles:
+    - base-resources
+
+  become: true

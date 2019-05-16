@@ -1,0 +1,4 @@
+- name: Install java by yum
+  yum:
+    name: java-1.8.0-openjdk-headless
+    state: latest
