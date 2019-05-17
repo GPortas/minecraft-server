@@ -22,8 +22,3 @@
   file:
     path: /minecraft/server.jar
     mode: '0755'
-
-- name: Run minecraft server
-  shell: java -Xmx768M -Xms768M -jar server.jar nogui
-  args:
-    chdir: /minecraft
