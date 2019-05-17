@@ -3,7 +3,7 @@ resource "aws_security_group" "ec2_instance_sg" {
   description = "${local.project_name} instance security group."
 }
 
-resource "aws_security_group_rule" "ec2_instance_sg_rule_ingress" {
+resource "aws_security_group_rule" "ec2_sg_rule_ssh_ingress"{
   type              = "ingress"
   from_port         = 22
   to_port           = 22
@@ -12,7 +12,16 @@ resource "aws_security_group_rule" "ec2_instance_sg_rule_ingress" {
   security_group_id = "${aws_security_group.ec2_instance_sg.id}"
 }
 
-resource "aws_security_group_rule" "ec2_instance_sg_rule_egress" {
+resource "aws_security_group_rule" "ec2_sg_rule_minecraft_ingress" {
+  type              = "ingress"
+  from_port         = 25565
+  to_port           = 25565
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = "${aws_security_group.ec2_instance_sg.id}"
+}
+
+resource "aws_security_group_rule" "ec2_sg_rule_egress" {
   type              = "egress"
   from_port         = 0
   to_port           = 0
