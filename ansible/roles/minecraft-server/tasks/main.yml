@@ -1,4 +1,29 @@
-- name: Install java by yum
+- name: Uninstall java-1.7.0 by yum
+  yum:
+    name: java-1.7.0
+    state: absent
+
+- name: Install java-1.8.0 by yum
   yum:
     name: java-1.8.0-openjdk-headless
     state: latest
+
+- name: Create minecraft directory
+  file:
+    path: /minecraft
+    state: directory
+
+- name: Download minecraft server
+  get_url:
+    url: https://launcher.mojang.com/v1/objects/ed76d597a44c5266be2a7fcd77a8270f1f0bc118/server.jar
+    dest: /minecraft
+
+- name: Changing permissions of server.jar
+  file:
+    path: /minecraft/server.jar
+    mode: '0755'
+
+- name: Run minecraft server
+  shell: java -Xmx768M -Xms768M -jar server.jar nogui
+  args:
+    chdir: /minecraft

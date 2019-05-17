@@ -1,6 +1,6 @@
-- name: "Base Resources Install"
+- name: "Minecraft server installation"
 
   roles:
-    - roles/base-resources
+    - roles/minecraft-server
 
   become: true
