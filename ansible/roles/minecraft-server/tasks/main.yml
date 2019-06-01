@@ -15,7 +15,7 @@
 
 - name: Download minecraft server
   get_url:
-    url: https://launcher.mojang.com/v1/objects/ed76d597a44c5266be2a7fcd77a8270f1f0bc118/server.jar
+    url: https://launcher.mojang.com/v1/objects/808be3869e2ca6b62378f9f4b33c946621620019/server.jar
     dest: /minecraft
 
 - name: Changing permissions of server.jar
